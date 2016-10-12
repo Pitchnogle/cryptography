@@ -15,7 +15,13 @@ then some extra null characters are added to end.
 There is also an option to replace spaces with a letter to be able to preserve
 the word length spacing.
 
+...
+
 This program would typically be used in conjunction with some form of cipher.
+Many books covering how ciphers work will include puzzles with this type of
+letter grouping in the enciphered data.
+
+...
 
 Written by: Justin Hadella (2016)
 */
@@ -24,6 +30,18 @@ Written by: Justin Hadella (2016)
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
+
+
+void usage()
+{
+  fprintf(stderr, "usage: $ regroup [options]\n\n");
+  fprintf(stderr, "options:\n");
+  fprintf(stderr, "-g 4 -- text output in groups of 4\n");
+  fprintf(stderr, "-g 5 -- text output in groups of 5\n");
+  fprintf(stderr, "-n * -- replace spaces with * character (which\n");
+  fprintf(stderr, "        can be any alphabetic character)\n");
+}
+
 
 int main (int argc, char **argv)
 {
@@ -71,20 +89,10 @@ int main (int argc, char **argv)
           }
         }
         break;
-        
-      case '?':
-        if (optopt == 'n')
-          fprintf (stderr, "Option -%c requires an argument.\n", optopt);
-        else if (isprint (optopt))
-          fprintf (stderr, "Unknown option `-%c'.\n", optopt);
-        else
-          fprintf (stderr,
-                   "Unknown option character `\\x%x'.\n",
-                   optopt);
-        return 1;
-        
+      
       default:
-        abort();
+        usage();
+        exit(1);
     }
   }
   
