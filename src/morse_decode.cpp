@@ -93,7 +93,6 @@ void decode_morse_symbol(std::ostream &os, int c)
     break;
   }
 
-  if (reset) {
+  if (reset)
     i = 0;
-  }
 }
