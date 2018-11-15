@@ -1,5 +1,4 @@
-# crytography/utils/CMakeLists.txt
-#
+# cryptography/utils/CMakeLists.txt
 
 # Build detab
 add_executable(detab detab.cpp)

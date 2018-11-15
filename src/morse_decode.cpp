@@ -24,7 +24,7 @@ Function takes in sequence of morse symbols to produce an ASCII character
 
 In order to produce an ASCII this may be called multiple times depending
 on the morse encoding. For example, the sequence "... " would define the
-'s'. The space at the end marks the end of the sequence.
+character 'S'. The space at the end marks the end of the sequence.
 */
 void decode_morse_symbol(std::ostream &os, int c);
 
@@ -37,7 +37,7 @@ int main()
   char c;
   while (std::cin.get(c)) {
     if (c == '\n')
-			std::cout << std::endl;
+      std::cout << std::endl;
     
     decode_morse_symbol(std::cout, c);
   }
@@ -50,7 +50,7 @@ int main()
 // Private Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Morse tree order in terms of levels
+// Morse tree ordered in terms of levels
 const char morse_tree[] =
 {
   0x0, 'E', 'T', 'I', 'A', 'N', 'M', 'S', 'U', 'R', 'W', 'D', 'K', 'G', 'O', 'H',
@@ -63,12 +63,13 @@ const char morse_tree[] =
   0x0, 0x0, ',', 0x0, 0x0, 0x0, 0x0, ':', 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
 };
 
+const int max_i = sizeof (morse_tree) / sizeof (morse_tree[0]);
+
 void decode_morse_symbol(std::ostream &os, int c)
 {
   bool reset = false;
 
-  int max_i = sizeof (morse_tree) / sizeof (morse_tree[0]);
-
+  // Index into morse tree
   static int i = 0;
 
   switch (c) {
@@ -83,7 +84,6 @@ void decode_morse_symbol(std::ostream &os, int c)
   case ' ':
     if (i != 0 && i < max_i)
       std::cout << (char)morse_tree[i];
-
     reset = true;
     break;
 

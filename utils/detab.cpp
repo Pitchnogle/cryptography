@@ -18,16 +18,15 @@ int main(int argc, char **argv)
   int tab_spaces = 2;
 
   // Or user can specify how many spaces to use
-  if (argc == 2) {
+  if (argc == 2)
     tab_spaces = atoi(argv[1]);
-  }
 
   // Replace tabs in stream with spaces
   char c;
   while (std::cin.get(c)) {
-    if (c == '\t') {
-      for (int i = 0; i < tab_spaces; i++) std::cout << " ";
-    }
+    if (c == '\t')
+      for (int i = 0; i < tab_spaces; i++) 
+        std::cout << " ";
     else 
       std::cout << c;
   }

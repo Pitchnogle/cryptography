@@ -7,8 +7,8 @@ International Morse code is used except in cases where ASCII doesn't have an
 equivalent substitute. 
 
 Example:
--- --- .-. ... . / -.-. --- -.. .
-MORSE CODE
+11101110001110111011100010111010001010100010
+MORSE
 
 @author Justin Hadella (pitchnogle@gmail.com)
 */
@@ -37,7 +37,7 @@ Function takes in sequence of morse symbols to produce an ASCII character
 
 In order to produce an ASCII this may be called multiple times depending
 on the morse encoding. For example, the sequence "... " would define the
-'s'. The space at the end marks the end of the sequence.
+'S'. The space at the end marks the end of the sequence.
 */
 void decode_morse_symbol(std::ostream &os, int c);
 

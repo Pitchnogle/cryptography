@@ -6,13 +6,10 @@
 #
 cmake_minimum_required (VERSION 2.8)
 
-# Set path to c++ compiler
-set(CMAKE_CXX_COMPILER /usr/bin/g++)
-
 project (cryptography)
 
 # Set path to c++ compiler
-#set(CMAKE_CXX_COMPILER /usr/bin/g++)
+set(CMAKE_CXX_COMPILER /usr/bin/g++)
 
 include(GNUInstallDirs ${PROJECT_SOURCE_DIR})
 
