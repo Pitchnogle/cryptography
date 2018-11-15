@@ -73,13 +73,8 @@ void decode_morse_symbol(std::ostream &os, int c)
   static int i = 0;
 
   switch (c) {
-  case '.':
-    i = 2 * i + 1;
-    break;
-
-  case '-':
-    i = 2 * i + 2;
-    break;
+  case '.': i = 2 * i + 1; break; // dit
+  case '-': i = 2 * i + 2; break; // dah
 
   case ' ':
     if (i != 0 && i < max_i)
@@ -93,6 +88,5 @@ void decode_morse_symbol(std::ostream &os, int c)
     break;
   }
 
-  if (reset)
-    i = 0;
+  if (reset) i = 0;
 }

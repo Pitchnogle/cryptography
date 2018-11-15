@@ -101,27 +101,21 @@ void decode_morse_bit(std::ostream &os, int c)
     decode_morse_symbol(os, '/');
 }
 
+const int max_i = sizeof (morse_tree) / sizeof (morse_tree[0]);
+
 void decode_morse_symbol(std::ostream &os, int c)
 {
   bool reset = false;
 
-  int max_i = sizeof (morse_tree) / sizeof (morse_tree[0]);
-
   static int i = 0;
 
   switch (c) {
-  case '.':
-    i = 2 * i + 1;
-    break;
-
-  case '-':
-    i = 2 * i + 2;
-    break;
+  case '.': i = 2 * i + 1; break; // dit
+  case '-': i = 2 * i + 2; break; // dah
 
   case ' ':
     if (i != 0 && i < max_i)
       std::cout << (char)morse_tree[i];
-
     reset = true;
     break;
 
@@ -131,6 +125,5 @@ void decode_morse_symbol(std::ostream &os, int c)
     break;
   }
 
-  if (reset)
-    i = 0;
+  if (reset) i = 0;
 }

@@ -111,5 +111,6 @@ void encode_morse_bit(std::ostream &os, int c)
     }
     c = c >> 2;
   };
+	
   if (print_gap) os << "00"; // 3 space between letters (one part of letter itself)
 }

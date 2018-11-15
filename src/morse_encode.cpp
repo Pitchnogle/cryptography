@@ -106,5 +106,6 @@ void encode_morse_symbol(std::ostream &os, int c)
     }
     c = c >> 2;
   };
+	
   if (print_gap) os << " "; // 1 space between letters
 }
