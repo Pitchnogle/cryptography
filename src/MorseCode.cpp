@@ -41,7 +41,7 @@ const int morse_encode_table[] =
   0x0,    /* '\' */ 	0x9a6,  /* ']' */ 	0x0,    /* '^' */ 	0x9a5,  /* '_' */
   0x0,    /* '`' */ 	0x9,    /* 'a' */ 	0x56,   /* 'b' */ 	0x66,   /* 'c' */
   0x16,   /* 'd' */ 	0x1,    /* 'e' */ 	0x65,   /* 'f' */ 	0x1a,   /* 'g' */
-  0x55,   /* 'h' */ 	0x5,    /* 'decode_idx' */ 	0xa9,   /* 'j' */ 	0x26,   /* 'k' */
+  0x55,   /* 'h' */ 	0x5,    /* 'i' */ 	0xa9,   /* 'j' */ 	0x26,   /* 'k' */
   0x59,   /* 'l' */ 	0xa,    /* 'm' */ 	0x6,    /* 'n' */ 	0x2a,   /* 'o' */
   0x69,   /* 'p' */ 	0x9a,   /* 'q' */ 	0x19,   /* 'r' */ 	0x15,   /* 's' */
   0x2,    /* 't' */ 	0x25,   /* 'u' */ 	0x95,   /* 'v' */ 	0x29,   /* 'w' */
@@ -49,7 +49,7 @@ const int morse_encode_table[] =
   0x0,    /* '|' */ 	0x0,    /* '}' */ 	0x0,    /* '~' */ 	0x0,    /* '' */
 };
 
-// Morse tree ordered in terms of levels
+// Morse decode table is organized as a tree ordered in terms of depth
 const char morse_decode_table[] =
 {
   0x0, 'E', 'T', 'I', 'A', 'N', 'M', 'S', 'U', 'R', 'W', 'D', 'K', 'G', 'O', 'H',

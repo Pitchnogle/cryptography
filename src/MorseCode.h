@@ -52,7 +52,7 @@ The morse mode defines the type of encoding/decoding
 */
 enum morse_mode {
   /**
-  This mode encodes morse into ditdah the symbols ['.', '-', ' ', '/']
+  This mode encodes morse into the symbols ['.', '-', ' ', '/']
 
   For example:
   MORSE CODE
@@ -142,7 +142,7 @@ private:
 
   Basically, this function is acting a ones and zeros counter to produce the
   normal [' ', '.', '-', '/'] symbols the non-binary morse decoder uses. When
-  certain counts are encountered, that constructed symbol is then decoded...
+  certain counts are encountered, that constructed symbol is then decoded.
   */
   void decode_morse_bit(std::ostream &os, int c);
 };
