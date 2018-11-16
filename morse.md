@@ -29,8 +29,9 @@ The Morse code encoder/decoder tool uses the following files:
 - MorseCode.cpp
 - morse.cpp
 
-```bash
-Usage: ./morse <option(s)>Options:
+```
+Usage: ./morse <option(s)>
+Options:
         -h,--help               Show this help message
         -b,--binary             Set mode to binary
         -d,--decode             Decode input stream
@@ -38,7 +39,11 @@ Usage: ./morse <option(s)>Options:
 
 ---
 
-morse_all.txt:
+The usage examples below all use the following file. This file contains examples
+of all available Morse symbols which can be encoded/decoded. *Notice how letterca
+capitalization doesn't matter for Morse code in the example runs.*
+
+*morse_all.txt*
 ```
 a b c d e f g h i j k l m n o p q r s t u v w x y z
 A B C D E F G H I J K L M N O O Q R S T U V W X Y Z

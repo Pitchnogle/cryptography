@@ -62,7 +62,7 @@ int main(int argc, char **argv)
 
 static void usage(std::string name)
 {
-  std::cerr << "Usage: " << name << " <option(s)>"
+  std::cerr << "Usage: " << name << " <option(s)>\n"
             << "Options:\n"
             << "\t-h,--help\t\tShow this help message\n"
             << "\t-b,--binary\t\tSet mode to binary\n"
