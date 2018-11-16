@@ -33,5 +33,8 @@ add_executable(morse_encode_bin ${SRC_DIR}/morse_encode_bin.cpp)
 # Build morse_decode_bin
 add_executable(morse_decode_bin ${SRC_DIR}/morse_decode_bin.cpp)
 
+# Build morse code exe
+add_executable(morse ${SRC_DIR}/morse.cpp ${SRC_DIR}/MorseCode.cpp)
+
 # Build the utils
 subdirs(utils)

@@ -1,2 +1,5 @@
 # Ignore folder named "build"
 build/
+
+# Ignore folder named ".vscode"
+.vscode/
