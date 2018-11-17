@@ -1,9 +1,11 @@
 /*
-This is a tool which automatically adds newlines to stream every # columns
+This is a Ceasar cipher encoder/decoder
 
 @author Justin Hadella (pitchnogle@gmail.com)
 */
 #include <iostream>
+
+#include "CaesarCipher.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Function Prototypes
@@ -17,8 +19,10 @@ static void usage(std::string name);
 
 int main(int argc, char **argv)
 {
-  // Insert newline after this column
-  int num_cols = 80;
+  bool decode_message = false;
+
+  // Default shift
+  int caesar_shift = 7;
 
   // Parse command-line arguments
   for (int i = 1; i < argc; i++) {
@@ -27,34 +31,36 @@ int main(int argc, char **argv)
       usage(argv[0]);
       return 0;
     }
-    else if ((arg == "-n") || (arg == "--num_cols")) {
+    else if ((arg == "-d") || (arg == "--decode")) {
+      decode_message = true;
+    }
+    else if ((arg == "-s") || (arg == "--shift")) {
       if (i + 1 < argc) {
-        num_cols = atoi(argv[i + 1]);
+        caesar_shift = atoi(argv[i + 1]);
       }
       else {
-        std::cerr << "--nul_cols requires an integer argument" << std::endl;
+        usage(argv[0]);
+        std::cerr << "--shift requires an integer argument" << std::endl;
         return 1;
       }
     }
   }
 
-  int col_count = 0;
+  CaesarCipher caesar;
+
+  caesar.set_n(caesar_shift);
 
   char c;
   while (std::cin.get(c)) {
-    std::cout << c;
-
-    if (c == '\n') {
-      col_count = 0;
-      continue;
+    if (isalpha(c)) {
+      if (decode_message)
+        caesar.decode(std::cout, c);
+      else
+        caesar.encode(std::cout, c);
     }
-
-    col_count++;
-    if (col_count == num_cols) {
-      std::cout << std::endl;
-      col_count = 0;
-    }
-  }
+    else
+      std::cout << c;
+  };
   std::cout << std::endl;
 
   return 0;
@@ -69,6 +75,7 @@ static void usage(std::string name)
   std::cerr << "Usage: " << name << " <option(s)>\n"
             << "Options:\n"
             << "\t-h,--help\t\tShow this help message\n"
-            << "\t-n,--num_cols COLUMN\tInsert newline automatically every num columns\n"
+            << "\t-s,--shift SHIFT\tSet Caesar cipher shift\n"
+            << "\t-d,--decode\t\tDecode input stream\n"
             << std::endl;
 }

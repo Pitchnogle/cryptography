@@ -34,8 +34,8 @@ symbol space                letter space    word space
 
 @author Justin Hadella (pitchnogle@gmail.com)
 */
-#ifndef _MORSE_CODE_H_
-#define _MORSE_CODE_H_
+#ifndef MORSE_CODE_H
+#define MORSE_CODE_H
 
 #include <ostream>
 
@@ -136,4 +136,4 @@ private:
   void decode_morse_bit(std::ostream &os, int c);
 };
 
-#endif // _MORSE_CODE_H_
+#endif
