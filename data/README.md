@@ -1,1 +1,1 @@
-This folder contains various text files to testing the various cryptography & code tools.
+This folder contains various text files to aid in testing the various cryptography & code tools.

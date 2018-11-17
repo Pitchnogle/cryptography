@@ -6,9 +6,9 @@
 - [docs](https://github.com/Pitchnogle/cryptography/tree/master/docs) <br>
   *Folder contains documentation*
 - [src](https://github.com/Pitchnogle/cryptography/tree/master/src) <br>
-  *Folder contains source code for various types of cryptography & codes*
+  *Folder contains source code for various types of ciphers & codes*
 - [tools](https://github.com/Pitchnogle/cryptography/tree/master/tools) <br>
-  *Folder contains various crytography & code tools*
+  *Folder contains various tools related to cryptography*
   
 ## Ciphers
 - [Caesar Cipher](docs/caesar.md)
