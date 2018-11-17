@@ -1,6 +1,4 @@
-/**
-@file MorseCode.h
-
+/*
 This is a simple class which encodes/decodes an input stream to/from Morse code
 
 Modes:
@@ -45,13 +43,11 @@ symbol space                letter space    word space
 // Definitions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-/**
-@enum morse_mode
-
+/*
 The morse mode defines the type of encoding/decoding
 */
-enum morse_mode {
-  /**
+enum MorseMode {
+  /*
   This mode encodes morse into the symbols ['.', '-', ' ', '/']
 
   For example:
@@ -60,7 +56,7 @@ enum morse_mode {
   */
   ditdah,
 
-  /**
+  /*
   This mode encodes morse into binary (1's and 0's)
 
   For example:
@@ -70,23 +66,16 @@ enum morse_mode {
   binary
 };
 
-/**
-@class MorseCode
-
+/*
 Class for encoding/decoding character stream into/from Morse code
 */
 class MorseCode
 {
 public:
   /*
-  Constructor defaults to ditdah mode
-  */
-  MorseCode();
-
-  /*
   Function to set the morse mode
   */
-  void set_mode(morse_mode mode);
+  void set_mode(MorseMode mode);
 
   /*
   Function to encode input into Morse code
@@ -99,11 +88,11 @@ public:
   void decode(std::ostream &os, int c);
 
 private:
-  morse_mode mode;
+  MorseMode m_mode{ditdah};
 
-  int decode_idx;
-  int decode_one_count;
-  int decode_zero_count;
+  int m_decode_idx{0};
+  int m_decode_one_count{0};
+  int m_decode_zero_count{0};
 
   /*
   Function takes in character and outputs a morse encoded symbol

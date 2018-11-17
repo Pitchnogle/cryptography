@@ -11,30 +11,21 @@ project (cryptography)
 # Set path to c++ compiler
 set(CMAKE_CXX_COMPILER /usr/bin/g++)
 
-include(GNUInstallDirs ${PROJECT_SOURCE_DIR})
-
 # Folder alias
 set (SRC_DIR ${CMAKE_SOURCE_DIR}/src)
+set (TOOLS_DIR ${CMAKE_SOURCE_DIR}/tools)
 
 # Set the include directories
-#include_directories(/usr/include ${SRC_DIR})
+include_directories(/usr/include ${SRC_DIR})
 
-# TODO -- make into lib?
+# Build detab
+add_executable(detab ${TOOLS_DIR}/detab.cpp)
 
-# Build morse_encode
-add_executable(morse_encode ${SRC_DIR}/morse_encode.cpp)
+# Build newline
+add_executable(newline ${TOOLS_DIR}/newline.cpp)
 
-# Build morse_decode
-add_executable(morse_decode ${SRC_DIR}/morse_decode.cpp)
+# Build regroup
+add_executable(regroup ${TOOLS_DIR}/regroup.cpp)
 
-# Build morse_encode_bin
-add_executable(morse_encode_bin ${SRC_DIR}/morse_encode_bin.cpp)
-
-# Build morse_decode_bin
-add_executable(morse_decode_bin ${SRC_DIR}/morse_decode_bin.cpp)
-
-# Build morse code exe
-add_executable(morse ${SRC_DIR}/morse.cpp ${SRC_DIR}/MorseCode.cpp)
-
-# Build the utils
-subdirs(utils)
+# Build morse
+add_executable(morse ${TOOLS_DIR}/morse.cpp ${SRC_DIR}/MorseCode.cpp)

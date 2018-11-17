@@ -1,6 +1,4 @@
 /*
-@file morse.cpp
-
 This is a tool which uses the MorseCode class to encode/decode messages
 
 @author Justin Hadella (pitchnogle@gmail.com)
