@@ -1,13 +1,13 @@
 # cryptography
 
 ## Contents
-- data/
+- data/ <br>
   *Folder contains example data to work with*  
-- docs/
+- docs/ <br>
   *Folder contains documentation*  
-- src/
+- src/ <br>
   *Folder contains source code for various types of cryptography & codes*  
-- tools/
+- tools/ <br>
   *Folder contains various crytography & code tools*  
   
 ## Ciphers
