@@ -1,7 +1,7 @@
 # cryptography
 
 ## Contents
-- data/ <br>
+- [data](data/README.md)
   *Folder contains example data to work with*  
 - docs/ <br>
   *Folder contains documentation*  
