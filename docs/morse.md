@@ -76,6 +76,11 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 & ' @ ) ( : , = ! . - + " ? / $ _
 ```
 
+When decoded, the output should match the input, with the exception that the letter
+capitalization is lost.
+
+...
+
 ### Example of binary encoding
 
 ```
