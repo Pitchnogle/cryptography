@@ -44,6 +44,12 @@ int main(int argc, char **argv)
   
   char c;
   while (std::cin.get(c)) {
+    // Don't process newline
+    if (c == '\n') {
+      std::cout << std::endl;
+      continue;
+    }
+
     if (decode_message)
       morse.decode(std::cout, c);
     else

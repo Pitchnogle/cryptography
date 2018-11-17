@@ -31,6 +31,10 @@ int main(int argc, char **argv)
       if (i + 1 < argc) {
         num_cols = atoi(argv[i + 1]);
       }
+      else {
+        std::cerr << "--nul_cols requires an integer argument" << std::endl;
+        return 1;
+      }
     }
   }
 
@@ -39,6 +43,11 @@ int main(int argc, char **argv)
   char c;
   while (std::cin.get(c)) {
     std::cout << c;
+
+    if (c == '\n') {
+      col_count = 0;
+      continue;
+    }
 
     col_count++;
     if (col_count == num_cols) {
