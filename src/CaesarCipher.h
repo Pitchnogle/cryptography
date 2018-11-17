@@ -18,12 +18,12 @@ public:
   /*
   Function sets the Caesar cipher shift value (modulus 26)
   */
-  void set_n(int n);
+  void set_shift(int shift);
 
   /*
   Function gets the Caesar cipher shift value
   */
-  int get_n();
+  int get_shift();
   
   /*
   Function to encode a character
@@ -36,19 +36,20 @@ public:
   void decode(std::ostream &os, int c);
 
 private:
-  int m_encode_shift{0};
-  int m_decode_shift{0};
+  int m_key{0};
 
   /*
-  Function applies the Ceasar cipher letter shift
+  Function applies the Ceasar cipher
 
   Encoding:
-  value = (x + n) % 26
+  value = (x + k) % 26
 
   Decoding:
-  value = (x - n) % 26 
+  value = (x - k) % 26
+
+  Decode uses opposite sign for the key!
   */
-  int letter_shift(int c, int n);
+  int shift_cipher(int c, int k);
 };
 
 #endif

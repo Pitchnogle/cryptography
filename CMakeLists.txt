@@ -32,3 +32,5 @@ add_executable(morse ${TOOLS_DIR}/morse.cpp ${SRC_DIR}/MorseCode.cpp)
 
 # Build caesar
 add_executable(caesar ${TOOLS_DIR}/caesar.cpp ${SRC_DIR}/CaesarCipher.cpp)
+
+add_executable(test test.cpp)
