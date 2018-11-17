@@ -36,3 +36,17 @@ Here is the same message using a shift of 7 (the default).
 $ ./caesar < ../data/quick_brown_fox.txt
 AOL XBPJR IYVDU MVE QBTWZ VCLY AOL SHGF KVN
 ```
+
+### Decode Example
+
+```
+$ ./caesar < ../data/quick_brown_fox.txt | ./caesar -d
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+```
+
+If we used a different shift amount, the message would be garbled still.
+
+```
+$ ./caesar < ../data/quick_brown_fox.txt | ./caesar -d -s 6
+UIF RVJDL CSPXO GPY KVNQT PWFS UIF MBAZ EPH
+```
