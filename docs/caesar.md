@@ -9,6 +9,7 @@ In this way, a message that initially was quite readable, ends up in a form that
 ## Caesar Cipher Encoder/Decoder
 
 The Caesar cipher encoder/decoder tool uses the following files:
+- [Cipher.h](../src/Cipher.h)
 - [CaesarCipher.h](../src/CaesarCipher.h)
 - [CaesarCipher.cpp](../src/CaesarCipher.cpp)
 - [caesar.cpp](../tools/caesar.cpp)
@@ -17,7 +18,8 @@ The Caesar cipher encoder/decoder tool uses the following files:
 Usage: ./caesar <option(s)>
 Options:
         -h,--help               Show this help message
-        -s,--shift SHIFT        Set Caesar cipher shift
+        -s,--shift INT_SHIFT    Set Caesar cipher shift
+        -x,--xor                Set XOR mode
         -d,--decode             Decode input stream
 ```
 

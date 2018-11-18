@@ -30,11 +30,11 @@ public:
   // All ciphers must implement set mode function
   virtual void set_mode(CipherMode mode) = 0;
 
-  // Converts ASCII into letter num (A = 0, B = 1, etc)
+  // Converts ASCII into letter num ('A' = 0, 'B' = 1, etc)
   static int a2n(int c) { return toupper(c) - 'A'; }
 
-  // Converts letter num into ASCII (0 = A, 1 = B, etc)
-  static int n2a(int c) { return toupper(c) + 'A'; }
+  // Converts letter num into ASCII (0 = 'A', 1 = 'B', etc)
+  static int n2a(int c) { return c + 'A'; }
 
 protected:
   CipherMode m_mode{alphabet};
