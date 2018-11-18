@@ -21,7 +21,6 @@ static void usage(std::string name);
 int main(int argc, char **argv)
 {
   bool decode_message = false;
-  bool set_xor_mode = false;
 
   // Default shift
   int caesar_shift = 7;
@@ -36,9 +35,6 @@ int main(int argc, char **argv)
     else if ((arg == "-d") || (arg == "--decode")) {
       decode_message = true;
     }
-    else if ((arg == "-x") || (arg == "--xor")) {
-      set_xor_mode = true;
-    }
     else if ((arg == "-s") || (arg == "--shift")) {
       if (i + 1 < argc) {
         caesar_shift = atoi(argv[i + 1]);
@@ -52,11 +48,6 @@ int main(int argc, char **argv)
   }
 
   CaesarCipher caesar;
-
-  if (set_xor_mode) {
-    caesar.set_mode(ascii_xor);
-  }
-
   caesar.set_shift(caesar_shift);
 
   char c;
@@ -81,7 +72,6 @@ static void usage(std::string name)
             << "Options:\n"
             << "\t-h,--help\t\tShow this help message\n"
             << "\t-s,--shift INT_SHIFT\tSet Caesar cipher shift\n"
-            << "\t-x,--xor\t\tSet XOR mode\n"
             << "\t-d,--decode\t\tDecode input stream\n"
             << std::endl;
 }

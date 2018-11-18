@@ -33,27 +33,19 @@ public:
   */
   void decode(std::ostream &os, int c);
 
-  /*
-  Function to set the cipher mode
-  */
-  void set_mode(CipherMode mode)
-  {
-    m_mode = mode;
-  }
-
 private:
   int m_key{0};
 
   /*
   Function applies the Ceasar cipher shift
 
+  The input c is a value from 0-25 representing the letters A-Z
+
   Encoding:
-  value = (x + k) % 26
+  value = (c + k) % 26
 
   Decoding:
-  value = (x - k) % 26
-
-  Decode uses opposite sign for the key!
+  value = (c - k) % 26
   */
   int shift(int c, CipherAction action);
 };

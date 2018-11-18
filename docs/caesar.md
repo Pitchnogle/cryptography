@@ -19,7 +19,6 @@ Usage: ./caesar <option(s)>
 Options:
         -h,--help               Show this help message
         -s,--shift INT_SHIFT    Set Caesar cipher shift
-        -x,--xor                Set XOR mode
         -d,--decode             Decode input stream
 ```
 
