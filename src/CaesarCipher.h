@@ -8,11 +8,9 @@ This is a simple class which encodes/decodes an input stream using Caesar cipher
 
 #include <ostream>
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Definitions
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#include "Cipher.h"
 
-class CaesarCipher
+class CaesarCipher : public Cipher
 {
 public:
   /*
@@ -35,11 +33,19 @@ public:
   */
   void decode(std::ostream &os, int c);
 
+  /*
+  Function to set the cipher mode
+  */
+  void set_mode(CipherMode mode)
+  {
+    m_mode = mode;
+  }
+
 private:
   int m_key{0};
 
   /*
-  Function applies the Ceasar cipher
+  Function applies the Ceasar cipher shift
 
   Encoding:
   value = (x + k) % 26
@@ -49,7 +55,7 @@ private:
 
   Decode uses opposite sign for the key!
   */
-  int shift_cipher(int c, int k);
+  int shift(int c, CipherAction action);
 };
 
 #endif

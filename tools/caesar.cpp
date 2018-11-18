@@ -6,6 +6,7 @@ This is a Ceasar cipher encoder/decoder
 #include <iostream>
 
 #include "CaesarCipher.h"
+#include "Cipher.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Function Prototypes
@@ -20,6 +21,7 @@ static void usage(std::string name);
 int main(int argc, char **argv)
 {
   bool decode_message = false;
+  bool set_xor_mode = false;
 
   // Default shift
   int caesar_shift = 7;
@@ -33,6 +35,9 @@ int main(int argc, char **argv)
     }
     else if ((arg == "-d") || (arg == "--decode")) {
       decode_message = true;
+    }
+    else if ((arg == "-x") || (arg == "--xor")) {
+      set_xor_mode = true;
     }
     else if ((arg == "-s") || (arg == "--shift")) {
       if (i + 1 < argc) {
@@ -48,18 +53,18 @@ int main(int argc, char **argv)
 
   CaesarCipher caesar;
 
-  caesar.set_n(caesar_shift);
+  if (set_xor_mode) {
+    caesar.set_mode(ascii_xor);
+  }
+
+  caesar.set_shift(caesar_shift);
 
   char c;
   while (std::cin.get(c)) {
-    if (isalpha(c)) {
-      if (decode_message)
-        caesar.decode(std::cout, c);
-      else
-        caesar.encode(std::cout, c);
-    }
+    if (decode_message)
+      caesar.decode(std::cout, c);
     else
-      std::cout << c;
+      caesar.encode(std::cout, c);
   };
   std::cout << std::endl;
 
@@ -75,7 +80,8 @@ static void usage(std::string name)
   std::cerr << "Usage: " << name << " <option(s)>\n"
             << "Options:\n"
             << "\t-h,--help\t\tShow this help message\n"
-            << "\t-s,--shift SHIFT\tSet Caesar cipher shift\n"
+            << "\t-s,--shift INT_SHIFT\tSet Caesar cipher shift\n"
+            << "\t-x,--xor\t\tSet XOR mode\n"
             << "\t-d,--decode\t\tDecode input stream\n"
             << std::endl;
 }

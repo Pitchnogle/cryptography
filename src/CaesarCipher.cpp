@@ -13,7 +13,12 @@ Implementation of Caesar cipher class
 
 void CaesarCipher::set_shift(int n)
 {
-  m_key = n > 0 ? n % 26 : (26 + n) % 26;
+  if (m_mode == alphabet) {
+    m_key = n > 0 ? n % 26 : (26 + n) % 26;
+  }
+  else if (m_mode == ascii_xor) {
+    m_key = n;
+  }
 }
 
 int CaesarCipher::get_shift()
@@ -23,25 +28,30 @@ int CaesarCipher::get_shift()
 
 void CaesarCipher::encode(std::ostream &os, int c)
 {
-  if (!isalpha(c)) return;
+  if (m_mode == alphabet && !isalpha(c)) return;
 
-  std::cout << (char)shift_cipher(c, m_key);
+  std::cout << (char)shift(c, CipherAction::encode);
 }
 
 void CaesarCipher::decode(std::ostream &os, int c)
 {
-  if (!isalpha(c)) return;
+  if (m_mode == alphabet && !isalpha(c)) return;
 
-  std::cout << (char)shift_cipher(c, -m_key);
+  std::cout << (char)shift(c, CipherAction::decode);
 }
 
-int CaesarCipher::shift_cipher(int c, int k)
-{
-  int letter_num = toupper(c) - 'A';
+// ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+// Private Functions
+// ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
-  int cipher = (letter_num + k) % 26;
-  if (cipher < 0)
-    cipher += 26;
-  
-  return cipher + 'A';
+int CaesarCipher::shift(int c, CipherAction action)
+{
+  if (m_mode == alphabet) {
+    int key = action == CipherAction::encode ? m_key : 26 - m_key;
+
+    return n2a((a2n(c) + key) % 26);
+  }
+  else if (m_mode == ascii_xor) {
+    return c ^ m_key;
+  }
 }
