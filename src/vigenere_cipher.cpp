@@ -27,9 +27,9 @@ void vigenere_cipher::encode(std::ostream &os, int c)
   if (m_mode == alphabet && !isalpha(c)) return;
 
   if (m_mode == alphabet)
-    std::cout << (char)shift_alpha(c, cipher_action::encode);
+    os << (char)shift_alpha(c, cipher_action::encode);
   else
-    std::cout << (char)shift_xor(c);
+    os << (char)shift_xor(c);
 }
 
 void vigenere_cipher::decode(std::ostream &os, int c)
@@ -37,9 +37,9 @@ void vigenere_cipher::decode(std::ostream &os, int c)
   if (m_mode == alphabet && !isalpha(c)) return;
 
   if (m_mode == alphabet)
-    std::cout << (char)shift_alpha(c, cipher_action::decode);
+    os << (char)shift_alpha(c, cipher_action::decode);
   else
-    std::cout << (char)shift_xor(c);
+    os << (char)shift_xor(c);
 }
 
 // ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~

@@ -37,7 +37,7 @@ ATTACK AT DAWN
 LXFOPV EF RNHR
 ```
 
-The typical use case would be to run the program as a text filter. Like the Caesar cipher, when using the default alphabet mode, all letters are treated as caps.
+The typical use case would be to run the program as a text filter. Like the Caesar cipher, when using the default alphabet mode, all letters are treated as caps. Notice how the ciphertext is different though both lines in the plaintext match.
 
 ```
 $ ./vigenere -k secretpassword < ../data/quick_brown_fox.txt

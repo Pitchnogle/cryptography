@@ -25,14 +25,14 @@ void caesar_cipher::encode(std::ostream &os, int c)
 {
   if (!isalpha(c)) return;
 
-  std::cout << (char)shift(c, cipher_action::encode);
+  os << (char)shift(c, cipher_action::encode);
 }
 
 void caesar_cipher::decode(std::ostream &os, int c)
 {
   if (!isalpha(c)) return;
 
-  std::cout << (char)shift(c, cipher_action::decode);
+  os << (char)shift(c, cipher_action::decode);
 }
 
 // ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~

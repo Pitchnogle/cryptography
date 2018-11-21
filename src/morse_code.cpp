@@ -123,12 +123,12 @@ void morse_code::decode_morse_symbol(std::ostream &os, int c)
 
   case ' ':
     if (m_decode_idx != 0 && m_decode_idx < DECODE_MAX_I)
-      std::cout << (char)MORSE_DECODE_TABLE[m_decode_idx];
+      os << (char)MORSE_DECODE_TABLE[m_decode_idx];
     reset = true;
     break;
 
   case '/':
-    std::cout << " ";
+    os << " ";
     reset = true;
     break;
   }
