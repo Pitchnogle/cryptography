@@ -1,11 +1,11 @@
 # Vigenère Cipher
 
-The Vigenère Cipher was developed by mathematician Blaise de Vigenère in the 16th century. The Vigenère Cipher was adapted as a twist on the standard Caesar cipher to reduce the effectiveness of performing frequency analysis on the ciphertext. The cipher accomplishes this using uses a text string as a key. Instead of shifting the plaintext letter by a fixed amount like the Caesar cipher, the invidual letter is the key determines the amount to shift. Should the key be shorter than the plaintext, it is repeated until the length matches.
+The Vigenère Cipher was developed by mathematician Blaise de Vigenère in the 16th century. The Vigenère Cipher was adapted as a twist on the standard Caesar cipher to reduce the effectiveness of performing frequency analysis on the ciphertext. The cipher accomplishes this using a text string as a key. Instead of shifting the plaintext letter by a fixed amount like the Caesar cipher, each letter in the key determines the amount to shift. Should the key be shorter than the plaintext, it is repeated until the length matches.
 
 There are two mode supported in the Vigenère cipher implementation
-- alphabet mode <br>
+- alphabet <br>
   *Traditional mode using modulo 26 math similar to Caesar cipher*
-- xor_ascii mode <br>
+- xor_ascii <br>
   *Modern variant using XOR*
 
 ## Vigenère Cipher Encoder/Decoder
@@ -17,7 +17,7 @@ The Vigenère cipher encoder/decoder tool uses the following files:
 - [vigenere.cpp](../tools/vigenere.cpp)
 
 ```
- Usage: ./vigenere <option(s)>
+Usage: ./vigenere <option(s)>
 Options:
         -h,--help               Show this help message
         -d,--decode             Decode input stream
@@ -53,10 +53,11 @@ THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 ```
 
-The Vigenère also supports a xor mode. In this mode, the enciphered text may result in non-printable ASCII characters.
+The Vigenère also supports an xor mode. In this mode, the enciphered text may result in non-printable ASCII characters.
 
 ```
-$ ./vigenere -k secretpassword -x < ../data/quick_brown_fox.txtP═╝R═╔5==3=E%==T:4>#$O=267C&-1P-2).O6+4hi&
+$ ./vigenere -k secretpassword -x < ../data/quick_brown_fox.txt
+P═╝R═╔5==3=E%==T:4>#$O=267C&-1P-2).O6+4hi&
 ES╗╗╗S
 T╝   S╔
        h~
@@ -65,7 +66,7 @@ T╝   S╔
 However, when using the xor mode, the symbol space is much larger so we don't lose letter capitalization.
 
 ```
-$ ./vigenere -k secretpassword -x < ../data/quick_brown_fox.txt | ./vigenere -ksecretpassword -d -x
+$ ./vigenere -k secretpassword -x < ../data/quick_brown_fox.txt | ./vigenere -k secretpassword -d -x
 THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 The quick brown fox jumps over the lazy dog
 ```
