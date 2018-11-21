@@ -12,6 +12,7 @@
   
 ## Ciphers
 - [Caesar Cipher](docs/caesar.md)
+- [Vigenère Cipher](docs/vigenere.md)
   
 ## Codes
 - [Morse Code](docs/morse.md)
