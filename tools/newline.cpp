@@ -36,6 +36,11 @@ int main(int argc, char **argv)
         return 1;
       }
     }
+    else {
+      usage(argv[0]);
+      std::cerr << "Invalid argument \"" << argv[i] << "\"" << std::endl;
+      return 1;
+    }
   }
 
   int col_count = 0;
@@ -55,7 +60,7 @@ int main(int argc, char **argv)
       col_count = 0;
     }
   }
-  std::cout << std::endl;
+  //std::cout << std::endl;
 
   return 0;
 }

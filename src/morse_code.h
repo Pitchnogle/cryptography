@@ -46,7 +46,7 @@ symbol space                letter space    word space
 /*
 The morse mode defines the type of encoding/decoding
 */
-enum MorseMode {
+enum morse_mode {
   /*
   This mode encodes morse into the symbols ['.', '-', ' ', '/']
 
@@ -69,13 +69,13 @@ enum MorseMode {
 /*
 Class for encoding/decoding character stream into/from Morse code
 */
-class MorseCode
+class morse_code
 {
 public:
   /*
   Function to set the morse mode
   */
-  void set_mode(MorseMode mode);
+  void set_mode(morse_mode mode);
 
   /*
   Function to encode input into Morse code
@@ -88,11 +88,11 @@ public:
   void decode(std::ostream &os, int c);
 
 private:
-  MorseMode m_mode{ditdah};
+  morse_mode m_mode{ditdah};
 
   int m_decode_idx{0};
-  int m_decode_one_count{0};
-  int m_decode_zero_count{0};
+  int m_decode_1_count{0};
+  int m_decode_0_count{0};
 
   /*
   Function takes in character and outputs a morse encoded symbol

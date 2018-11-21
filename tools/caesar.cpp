@@ -5,8 +5,8 @@ This is a Ceasar cipher encoder/decoder
 */
 #include <iostream>
 
-#include "CaesarCipher.h"
-#include "Cipher.h"
+#include "caesar_cipher.h"
+#include "cipher.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Function Prototypes
@@ -38,6 +38,7 @@ int main(int argc, char **argv)
     else if ((arg == "-s") || (arg == "--shift")) {
       if (i + 1 < argc) {
         caesar_shift = atoi(argv[i + 1]);
+        i++;
       }
       else {
         usage(argv[0]);
@@ -45,13 +46,21 @@ int main(int argc, char **argv)
         return 1;
       }
     }
+    else {
+      usage(argv[0]);
+      std::cerr << "Invalid argument \"" << argv[i] << "\"" << std::endl;
+      return 1;
+    }
   }
 
-  CaesarCipher caesar;
+  caesar_cipher caesar;
   caesar.set_shift(caesar_shift);
 
   char c;
   while (std::cin.get(c)) {
+    if (c == ' ' || c == '\n')
+      std::cout << c;
+    
     if (decode_message)
       caesar.decode(std::cout, c);
     else

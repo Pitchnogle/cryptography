@@ -1,6 +1,4 @@
-/**
-@file detab.c
-@brief 
+/*
 This is program which replaces any occurrences of tab characters with a number
 of spaces
 
@@ -24,11 +22,14 @@ int main(int argc, char **argv)
   // Replace tabs in stream with spaces
   char c;
   while (std::cin.get(c)) {
-    if (c == '\t')
-      for (int i = 0; i < tab_spaces; i++) 
+    if (c == '\t') {
+      for (int i = 0; i < tab_spaces; i++) {
         std::cout << " ";
-    else 
+      }
+    }
+    else {
       std::cout << c;
+    }
   }
 
   return 0;

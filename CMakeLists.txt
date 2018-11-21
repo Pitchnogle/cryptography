@@ -28,7 +28,10 @@ add_executable(newline ${TOOLS_DIR}/newline.cpp)
 add_executable(regroup ${TOOLS_DIR}/regroup.cpp)
 
 # Build morse
-add_executable(morse ${TOOLS_DIR}/morse.cpp ${SRC_DIR}/MorseCode.cpp)
+add_executable(morse ${TOOLS_DIR}/morse.cpp ${SRC_DIR}/morse_code.cpp)
 
 # Build caesar
-add_executable(caesar ${TOOLS_DIR}/caesar.cpp ${SRC_DIR}/CaesarCipher.cpp)
+add_executable(caesar ${TOOLS_DIR}/caesar.cpp ${SRC_DIR}/caesar_cipher.cpp)
+
+# Build vigenere
+add_executable(vigenere ${TOOLS_DIR}/vigenere.cpp ${SRC_DIR}/vigenere_cipher.cpp)

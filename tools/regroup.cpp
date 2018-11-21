@@ -1,6 +1,4 @@
-/**
-@file regroup.c
-
+/*
 This program is a simple text filter which takes an input stream and produces an
 output where non-alphabetic characters are omitted and alphabetic characters are
 output as uppercase in groups of 4 or 5 characters separated by spaces.

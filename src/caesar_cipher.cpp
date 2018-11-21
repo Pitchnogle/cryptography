@@ -3,7 +3,7 @@ Implementation of Caesar cipher class
 
 @author Justin Hadella (pitchnogle@gmail.com)
 */
-#include "CaesarCipher.h"
+#include "caesar_cipher.h"
 
 #include <iostream>
 
@@ -11,37 +11,37 @@ Implementation of Caesar cipher class
 // Public Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void CaesarCipher::set_shift(int n)
+void caesar_cipher::set_shift(int n)
 {
   m_key = n > 0 ? n % 26 : (26 + n) % 26;
 }
 
-int CaesarCipher::get_shift()
+int caesar_cipher::get_shift()
 {
   return m_key;
 }
 
-void CaesarCipher::encode(std::ostream &os, int c)
+void caesar_cipher::encode(std::ostream &os, int c)
 {
   if (!isalpha(c)) return;
 
-  std::cout << (char)shift(c, CipherAction::encode);
+  std::cout << (char)shift(c, cipher_action::encode);
 }
 
-void CaesarCipher::decode(std::ostream &os, int c)
+void caesar_cipher::decode(std::ostream &os, int c)
 {
   if (!isalpha(c)) return;
 
-  std::cout << (char)shift(c, CipherAction::decode);
+  std::cout << (char)shift(c, cipher_action::decode);
 }
 
 // ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 // Private Functions
 // ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 
-int CaesarCipher::shift(int c, CipherAction action)
+int caesar_cipher::shift(int c, cipher_action action)
 {
-  int key = action == CipherAction::encode ? m_key : 26 - m_key;
+  int key = action == cipher_action::encode ? m_key : 26 - m_key;
 
   return n2a((a2n(c) + key) % 26);
 }

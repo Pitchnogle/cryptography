@@ -3,7 +3,7 @@ Implementation of Morse code class
 
 @author Justin Hadella (pitchnogle@gmail.com)
 */
-#include "MorseCode.h"
+#include "morse_code.h"
 
 #include <iostream>
 
@@ -66,12 +66,12 @@ const size_t DECODE_MAX_I = sizeof (MORSE_DECODE_TABLE) / sizeof (MORSE_DECODE_T
 // Public Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void MorseCode::set_mode(MorseMode mode)
+void morse_code::set_mode(morse_mode mode)
 {
   m_mode = mode;
 }
 
-void MorseCode::encode(std::ostream &os, int c)
+void morse_code::encode(std::ostream &os, int c)
 {
   if (m_mode == ditdah)
     encode_morse_symbol(os, c);
@@ -79,7 +79,7 @@ void MorseCode::encode(std::ostream &os, int c)
     encode_morse_bit(os, c);
 }
 
-void MorseCode::decode(std::ostream &os, int c)
+void morse_code::decode(std::ostream &os, int c)
 {
   if (m_mode == ditdah)
     decode_morse_symbol(os, c);
@@ -91,7 +91,7 @@ void MorseCode::decode(std::ostream &os, int c)
 // Private Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void MorseCode::encode_morse_symbol(std::ostream &os, int c)
+void morse_code::encode_morse_symbol(std::ostream &os, int c)
 {
   const int ascii_mask = 0x7f;
 
@@ -113,7 +113,7 @@ void MorseCode::encode_morse_symbol(std::ostream &os, int c)
   if (print_gap) os << " "; // 1 space between letters
 }
 
-void MorseCode::decode_morse_symbol(std::ostream &os, int c)
+void morse_code::decode_morse_symbol(std::ostream &os, int c)
 {
   bool reset = false;
 
@@ -136,7 +136,7 @@ void MorseCode::decode_morse_symbol(std::ostream &os, int c)
   if (reset) m_decode_idx = 0;
 }
 
-void MorseCode::encode_morse_bit(std::ostream &os, int c)
+void morse_code::encode_morse_bit(std::ostream &os, int c)
 {
   const int ascii_mask = 0x7f;
 
@@ -158,27 +158,27 @@ void MorseCode::encode_morse_bit(std::ostream &os, int c)
   if (print_gap) os << "00"; // 3 space between letters (one part of letter itself)
 }
 
-void MorseCode::decode_morse_bit(std::ostream &os, int c)
+void morse_code::decode_morse_bit(std::ostream &os, int c)
 {
   if (c == '1') {
-    m_decode_one_count++;
-    m_decode_zero_count = 0;
+    m_decode_1_count++;
+    m_decode_0_count = 0;
   }
 
   if (c == '0') {
-    m_decode_zero_count++;
+    m_decode_0_count++;
   
-    if (m_decode_one_count == 1)
+    if (m_decode_1_count == 1)
       decode_morse_symbol(os, '.');
-    else if (m_decode_one_count == 3)
+    else if (m_decode_1_count == 3)
       decode_morse_symbol(os, '-');
 
-    m_decode_one_count = 0;
+    m_decode_1_count = 0;
   }
 
-  if (m_decode_zero_count == 3)
+  if (m_decode_0_count == 3)
     decode_morse_symbol(os, ' ');
 
-  if (m_decode_zero_count == 7)
+  if (m_decode_0_count == 7)
     decode_morse_symbol(os, '/');
 }

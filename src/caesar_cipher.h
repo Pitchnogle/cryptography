@@ -8,9 +8,9 @@ This is a simple class which encodes/decodes an input stream using Caesar cipher
 
 #include <ostream>
 
-#include "Cipher.h"
+#include "cipher.h"
 
-class CaesarCipher : public Cipher
+class caesar_cipher : public cipher
 {
 public:
   /*
@@ -34,6 +34,7 @@ public:
   void decode(std::ostream &os, int c);
 
 private:
+  // The "key" in a Caesar cipher is the fixed letter shift value
   int m_key{0};
 
   /*
@@ -47,7 +48,7 @@ private:
   Decoding:
   value = (c - k) % 26
   */
-  int shift(int c, CipherAction action);
+  int shift(int c, cipher_action action);
 };
 
 #endif

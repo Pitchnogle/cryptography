@@ -25,8 +25,8 @@ equivalent substitute.
 ## Morse Code Encoder/Decoder
 
 The Morse code encoder/decoder tool uses the following files:
-- [MorseCode.h](../src/MorseCode.h)
-- [MorseCode.cpp](../src/MorseCode.cpp)
+- [morse_code.h](../src/morse_code.h)
+- [morse_code.cpp](../src/morse_code.cpp)
 - [morse.cpp](../tools/morse.cpp)
 
 ```

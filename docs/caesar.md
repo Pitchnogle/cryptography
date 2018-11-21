@@ -1,17 +1,17 @@
 # Caesar Cipher
 
-The **Caesar Cipher**, also known as a shift cipher, is one of the oldest and simplest forms of encrypting a message. It is a type of substitution cipher where each letter in the original message (which in cryptography is called the plaintext) is replaced with a letter corresponding to a certain number of letters shifted up or down in the alphabet. 
-
-For each letter of the alphabet, you would take its position in the alphabet, say 3 for the letter **C**, and shift it by the key number. If we had a key of 3, that **C** would be shifted down to an **F** and that same process would be applied to every letter in the plaintext.
+The **Caesar Cipher**, also known as a shift cipher, is one of the oldest and simplest forms of encryption. In this cipher, each letter in the original message, called the plaintext, is shifted by a fixed amount. For example, if the shift amount was 3, then an 'A' would be replaced by a 'D', a 'B' would be replaced by an 'E', etc.
 
 In this way, a message that initially was quite readable, ends up in a form that cannot be understood at a simple glance.
+
+*To match the classical implementation, lower case letter are not used and are replaced by capital letters.*
 
 ## Caesar Cipher Encoder/Decoder
 
 The Caesar cipher encoder/decoder tool uses the following files:
-- [Cipher.h](../src/Cipher.h)
-- [CaesarCipher.h](../src/CaesarCipher.h)
-- [CaesarCipher.cpp](../src/CaesarCipher.cpp)
+- [cipher.h](../src/cipher.h)
+- [caesar_cipher.h](../src/caesar_cipher.h)
+- [caesar_cipher.cpp](../src/caesar_cipher.cpp)
 - [caesar.cpp](../tools/caesar.cpp)
 
 ```
@@ -29,12 +29,14 @@ Options:
 ```
 $ cat ../data/quick_brown_fox.txt
 THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+The quick brown fox jumps over the lazy dog
 ```
 
 Here is the same message using a shift of 7 (the default).
 
 ```
 $ ./caesar < ../data/quick_brown_fox.txt
+AOL XBPJR IYVDU MVE QBTWZ VCLY AOL SHGF KVN
 AOL XBPJR IYVDU MVE QBTWZ VCLY AOL SHGF KVN
 ```
 
@@ -43,11 +45,13 @@ AOL XBPJR IYVDU MVE QBTWZ VCLY AOL SHGF KVN
 ```
 $ ./caesar < ../data/quick_brown_fox.txt | ./caesar -d
 THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 ```
 
 If we used a different shift amount, the message would be garbled still.
 
 ```
 $ ./caesar < ../data/quick_brown_fox.txt | ./caesar -d -s 6
+UIF RVJDL CSPXO GPY KVNQT PWFS UIF MBAZ EPH
 UIF RVJDL CSPXO GPY KVNQT PWFS UIF MBAZ EPH
 ```
