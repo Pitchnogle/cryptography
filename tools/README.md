@@ -1,16 +1,4 @@
-### This folder contains various tools for use with cryptography, ciphers, and codes
-
-Many of the programs in the **tools/** folder are written as Unix-style text filters. The typical usage case is in the form:
-
-```
-prog < input_file
-```
-
-or
-
-```
-prog < input_file > output_file
-```
+This folder contains various tools for use with cryptography, ciphers, and codes
 
 ### Contents:
 - [atbash](atbash.cpp)<br>
@@ -31,3 +19,15 @@ prog < input_file > output_file
   *Text filter scrambles input. Useful to help make cipher keys*
 - [vigenere](vigenere.cpp)<br>
   *Encoder/Decoder program using the Vigenère cipher*
+
+Many of the programs in the **tools/** folder are written as Unix-style text filters. The typical usage case is in the form:
+
+```
+prog < input_file
+```
+
+or
+
+```
+prog < input_file > output_file
+```
