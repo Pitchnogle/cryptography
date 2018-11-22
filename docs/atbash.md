@@ -16,6 +16,7 @@ Options:
         -h,--help               Show this help message
         -d,--decode             Decode input stream
 ```
+---
 
 ### Example
 
@@ -27,4 +28,24 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 $ ./atbash < ../data/caps.txt
 ZYXWVUTSRQPONMLKJIHGFEDCBA
+```
+
+```
+$ ./atbash < ../data/quick_brown_fox.txt
+GSV JFRXP YILDM ULC QFNKH LEVI GSV OZAB WLT
+GSV JFRXP YILDM ULC QFNKH LEVI GSV OZAB WLT
+```
+
+```
+$ ./atbash < ../data/quick_brown_fox.txt | ./atbash -d
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+```
+
+Since the Atbash cipher is just a pure letter substitution, there is effectively no difference between encoding or decoding. So, in the last example, the -d argument was not necessary.
+
+```
+$ ./atbash < ../data/quick_brown_fox.txt | ./atbash
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 ```
