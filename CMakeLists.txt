@@ -33,6 +33,9 @@ add_executable(regroup ${TOOLS_DIR}/regroup.cpp)
 # Build morse
 add_executable(morse ${TOOLS_DIR}/morse.cpp ${SRC_DIR}/morse_code.cpp)
 
+# Build atbash
+add_executable(atbash ${TOOLS_DIR}/atbash.cpp ${SRC_DIR}/atbash_cipher.cpp)
+
 # Build caesar
 add_executable(caesar ${TOOLS_DIR}/caesar.cpp ${SRC_DIR}/caesar_cipher.cpp)
 

@@ -11,6 +11,7 @@
   *Folder contains various tools related to cryptography*
   
 ## Ciphers
+- [Atbash Cipher](docs/atbash.md)
 - [Caesar Cipher](docs/caesar.md)
 - [Vigenère Cipher](docs/vigenere.md)
   
