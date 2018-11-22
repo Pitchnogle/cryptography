@@ -41,3 +41,9 @@ add_executable(caesar ${TOOLS_DIR}/caesar.cpp ${SRC_DIR}/caesar_cipher.cpp)
 
 # Build vigenere
 add_executable(vigenere ${TOOLS_DIR}/vigenere.cpp ${SRC_DIR}/vigenere_cipher.cpp)
+
+# Build scramble
+add_executable(scramble ${TOOLS_DIR}/scramble.cpp)
+
+# Build railfence
+add_executable(railfence ${TOOLS_DIR}/railfence.cpp)

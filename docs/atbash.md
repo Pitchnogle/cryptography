@@ -42,7 +42,7 @@ THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 ```
 
-Since the Atbash cipher is just a pure letter substitution, there is effectively no difference between encoding or decoding. So, in the last example, the -d argument was not necessary.
+Since the Atbash cipher is just a pure letter substitution, there is effectively no difference between encoding and decoding. So, in the last example, the -d argument was unnecessary.
 
 ```
 $ ./atbash < ../data/quick_brown_fox.txt | ./atbash

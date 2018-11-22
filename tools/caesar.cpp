@@ -66,7 +66,6 @@ int main(int argc, char **argv)
     else
       caesar.encode(std::cout, c);
   };
-  std::cout << std::endl;
 
   return 0;
 }

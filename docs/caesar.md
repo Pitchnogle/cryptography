@@ -4,6 +4,8 @@ The **Caesar Cipher**, also known as a shift cipher, is one of the oldest and si
 
 In this way, a message that initially was quite readable, ends up in a form that cannot be understood at a simple glance.
 
+There is another cipher referred to as **ROT13**. This is just a Caesar cipher using a shift of 13.
+
 *To match the classical implementation, lower case letter are not used and are replaced by capital letters.*
 
 ## Caesar Cipher Encoder/Decoder

@@ -20,7 +20,6 @@ void atbash_cipher::encode(std::ostream &os, int c)
 
 void atbash_cipher::decode(std::ostream &os, int c)
 {
-  if (!isalpha(c)) return;
-
-  os << (char)n2a(25 - a2n(c));
+  // Decode is exactly same as encode
+  encode(os, c);
 }
