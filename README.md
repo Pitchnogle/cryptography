@@ -13,7 +13,7 @@
 ## Ciphers
 - [Atbash Cipher](docs/atbash.md)
 - [Caesar Cipher](docs/caesar.md)
-- [Rail Fence Cipher](docs/railfence.md)
+- [Rail-Fence Cipher](docs/railfence.md)
 - [Vigenère Cipher](docs/vigenere.md)
   
 ## Codes

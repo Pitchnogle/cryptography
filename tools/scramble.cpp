@@ -1,6 +1,14 @@
 /*
 This is a tool which scrambles an input string
 
+Example:
+```
+$ ./scramble ABCDEFGHIJKLMNOPQRSTUVWXYZ
+ROHXKILNSMCJFDZGABWVTPEQYU
+```
+
+This should be a useful tool to make random keys for ciphers such as Playfair.
+
 @author Justin Hadella (pitchnogle@gmail.com)
 */
 #include <iostream>
