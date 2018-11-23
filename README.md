@@ -18,4 +18,11 @@
   
 ## Codes
 - [Morse Code](docs/morse.md)
-  
+
+## Resources
+
+- [Gardner, M. (1972). *Codes, Ciphers and Secret Writing*](http://store.doverpublications.com/0486247619.html)
+- [Gaines, H. (1956). *Cryptanalysis: a study in ciphers and their solutions*](http://store.doverpublications.com/0486200973.html)
+- [Churchhouse, R. (2002). *Codes and Ciphers: Julius Caesar, the Enigma and the internet](https://www.cambridge.org/core/books/codes-and-ciphers/743D143455A77D01AA68676125152B5D)
+- [learncryptography.com](https://learncryptography.com/)
+- [practicalcryptography.com](http://practicalcryptography.com/)
